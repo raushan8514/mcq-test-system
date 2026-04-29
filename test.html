@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test Page - MCQ Test System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="test-page">
+    <!-- Test Header -->
+    <header class="test-header">
+      <div class="test-title">
+        <h1>MCQ Test</h1>
+      </div>
+      <div class="test-progress">
+        <span id="currentQuestionNum">1</span> / <span id="totalQuestionsNum">0</span>
+      </div>
+    </header>
+
+    <!-- Test Content -->
+    <main class="test-content">
+      <div class="question-container">
+        <div class="question-header">
+          <span class="question-number">Question <span id="qNum">1</span></span>
+          <span class="question-category" id="qCategory"></span>
+        </div>
+        
+        <div class="question-text" id="questionText">
+          <!-- Question text will be loaded here -->
+        </div>
+
+        <div class="options-container" id="optionsContainer">
+          <!-- Options will be loaded here -->
+        </div>
+      </div>
+    </main>
+
+    <!-- Test Navigation -->
+    <footer class="test-navigation">
+      <div class="nav-left">
+        <button class="btn btn-secondary" id="prevBtn" disabled>
+          ← Previous
+        </button>
+      </div>
+      <div class="nav-center">
+        <div class="question-dots" id="questionDots">
+          <!-- Question dots will be generated here -->
+        </div>
+      </div>
+      <div class="nav-right">
+        <button class="btn btn-primary" id="nextBtn">
+          Next →
+        </button>
+        <button class="btn btn-success hidden" id="submitBtn">
+          Submit Test
+        </button>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Submit Confirmation Modal -->
+  <div class="modal hidden" id="submitModal">
+    <div class="modal-overlay"></div>
+    <div class="modal-content modal-small">
+      <div class="modal-header">
+        <h2>Submit Test</h2>
+        <button class="modal-close" id="closeSubmitModal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure you want to submit your test?</p>
+        <p class="warning-text">Once submitted, you cannot change your answers.</p>
+        <div class="submission-summary">
+          <span>Questions answered: <strong id="answeredCount">0</strong> / <strong id="totalCount">0</strong></span>
+        </div>
+      </div>
+      <div class="modal-actions">
+        <button class="btn btn-secondary" id="cancelSubmit">Review Answers</button>
+        <button class="btn btn-success" id="confirmSubmit">Submit</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Success Modal -->
+  <div class="modal hidden" id="successModal">
+    <div class="modal-overlay"></div>
+    <div class="modal-content modal-small">
+      <div class="modal-header">
+        <h2>Test Submitted!</h2>
+      </div>
+      <div class="modal-body success-body">
+        <div class="success-icon">✓</div>
+        <p>Your test has been submitted successfully.</p>
+        <p class="info-text">Your teacher will review your answers and calculate your score.</p>
+        <button class="btn btn-primary" id="backToDashboard">Back to Dashboard</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+  <script src="firebase-config.js"></script>
+  <script src="js/test.js"></script>
+</body>
+</html>

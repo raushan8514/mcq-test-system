@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Dashboard - MCQ Test System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="dashboard">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <h2>MCQ System</h2>
+        <span class="role-badge student">Student</span>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="#" class="nav-item active" data-section="test">
+          <span class="nav-icon">📝</span>
+          Take Test
+        </a>
+        <a href="#" class="nav-item" data-section="history">
+          <span class="nav-icon">📋</span>
+          My Submissions
+        </a>
+      </nav>
+      <div class="sidebar-footer">
+        <div class="user-info">
+          <div class="user-avatar" id="studentAvatar">S</div>
+          <div class="user-details">
+            <span class="user-name" id="studentName">Student</span>
+            <span class="user-email" id="studentEmail">student@example.com</span>
+          </div>
+        </div>
+        <button class="btn btn-logout" id="logoutBtn">Logout</button>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Test Section -->
+      <section id="testSection" class="content-section active">
+        <div class="section-header">
+          <h1>Unique Coaching Centre/By S.K. Jha</h1>
+          <div class="test-info">
+            <span class="question-count" id="questionCount">0 Questions Available</span>
+          </div>
+        </div>
+
+        <div class="test-start-card">
+          <div class="test-icon">📝</div>
+          <h2>Ready to Start?</h2>
+          <p>This test contains <strong id="totalQuestions">0</strong> questions. You can attempt them in any order.</p>
+          <ul class="test-instructions">
+            <li>Each question has 4 options (A, B, C, D)</li>
+            <li>Select the correct answer for each question</li>
+            <li>You can navigate between questions using Next/Previous buttons</li>
+            <li>Your answers will be saved automatically</li>
+            <li>Once submitted, you cannot change your answers</li>
+            <li><strong>Your score will NOT be shown after submission</strong></li>
+          </ul>
+          <button class="btn btn-primary btn-large" id="startTestBtn">
+            Start Test
+          </button>
+        </div>
+      </section>
+
+      <!-- History Section -->
+      <section id="historySection" class="content-section">
+        <div class="section-header">
+          <h1>My Submissions</h1>
+        </div>
+
+        <div class="history-table-container">
+          <table class="data-table" id="historyTable">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Date</th>
+                <th>Questions Attempted</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="historyTableBody">
+              <!-- History will be loaded here -->
+            </tbody>
+          </table>
+          <div class="table-empty hidden" id="noHistory">
+            <p>You haven't submitted any tests yet.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+  <script src="firebase-config.js"></script>
+  <script src="js/student.js"></script>
+</body>
+</html>
